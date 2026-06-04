@@ -83,20 +83,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_NAME', 'msspublic'),
+        'NAME': os.environ.get('DB_NAME', 'railway'),
         'USER': os.environ.get('DB_USER', 'root'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'mysqlrailway2026'),
-        'HOST': os.environ.get('DB_HOST', 'zephyr.proxy.rlwy.net:45322'),
-        'PORT': os.environ.get('DB_PORT', '3306'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'pWpcDFQUcRrKzgqsjkpCTlQYXwwEktfp'),
+        'HOST': os.environ.get('DB_HOST', 'zephyr.proxy.rlwy.net'),
+        'PORT': os.environ.get('DB_PORT', '45322'),
     },      
-    'school': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB2_NAME', 'msspublicschool'),
-        'USER': os.environ.get('DB_USER', 'root'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'mysqlrailway2026'),
-            'HOST': os.environ.get('DB_HOST', 'zephyr.proxy.rlwy.net:45322'),
-            'PORT': os.environ.get('DB_PORT', '3306'),
-    }
 }
 
 DATABASE_ROUTERS = ['backend.routers.TCRouter']
