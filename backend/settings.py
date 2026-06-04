@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -82,19 +83,19 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'msspublic',
-         'USER': 'root',
-        'PASSWORD': 'gayathri123',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    },
+        'NAME': os.environ.get('DB_NAME', 'msspublic'),
+        'USER': os.environ.get('DB_USER', 'root'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'mysqlrailway2026'),
+        'HOST': os.environ.get('DB_HOST', 'zephyr.proxy.rlwy.net:45322'),
+        'PORT': os.environ.get('DB_PORT', '3306'),
+    },      
     'school': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'msspublicschool',
-        'USER': 'root',
-        'PASSWORD': 'gayathri123',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': os.environ.get('DB2_NAME', 'msspublicschool'),
+        'USER': os.environ.get('DB_USER', 'root'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'mysqlrailway2026'),
+            'HOST': os.environ.get('DB_HOST', 'zephyr.proxy.rlwy.net:45322'),
+            'PORT': os.environ.get('DB_PORT', '3306'),
     }
 }
 
