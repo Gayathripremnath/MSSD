@@ -9,7 +9,7 @@ def validate_image(file):
     if ext not in valid_extensions:
         raise ValidationError("Only JPG and PNG files are allowed!")
 
-class Gallery(models.Model):
+class GalleryImage(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='gallery/', validators=[validate_image])
     created_at = models.DateTimeField(auto_now_add=True)
@@ -18,8 +18,8 @@ class Gallery(models.Model):
         return self.title
 
 
-class Albums(models.Model):
-    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='album_images', null=True, blank=True)
+class AlbumImage(models.Model):
+    gallery = models.ForeignKey(GalleryImage, on_delete=models.CASCADE, related_name='album_images', null=True, blank=True)
     image = models.ImageField(upload_to='gallery/', validators=[validate_image])
 
     def __str__(self):

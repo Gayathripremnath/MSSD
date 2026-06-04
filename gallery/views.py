@@ -1,19 +1,19 @@
 from django.shortcuts import render
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Gallery, Albums
-from .serializers import GallerySerializer, AlbumsSerializer
+from .models import GalleryImage, AlbumImage
+from .serializers import GalleryImageSerializer, AlbumImageSerializer
 
 class GalleryListView(generics.ListAPIView):
-    queryset = Gallery.objects.all().order_by('-created_at')
-    serializer_class = GallerySerializer
+    queryset = GalleryImage.objects.all().order_by('-created_at')
+    serializer_class = GalleryImageSerializer
 
 class GalleryDetailView(generics.RetrieveAPIView):
-    queryset = Gallery.objects.all()
-    serializer_class = GallerySerializer
+    queryset = GalleryImage.objects.all()
+    serializer_class = GalleryImageSerializer
 
 class AlbumListView(generics.ListAPIView):
-    queryset = Albums.objects.all()
-    serializer_class = AlbumsSerializer
+    queryset = AlbumImage.objects.all()
+    serializer_class = AlbumImageSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ['gallery']
