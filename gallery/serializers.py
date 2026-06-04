@@ -1,12 +1,12 @@
 from rest_framework import serializers
-from .models import GalleryImage, AlbumImage
+from .models import Gallery, Albums
 
 
-class AlbumImageSerializer(serializers.ModelSerializer):
+class AlbumsSerializer(serializers.ModelSerializer):
     image_url = serializers.SerializerMethodField()
 
     class Meta:
-        model = AlbumImage
+        model = Albums
         fields = ['id', 'gallery', 'image', 'image_url']
 
     def get_image_url(self, obj):
@@ -16,12 +16,12 @@ class AlbumImageSerializer(serializers.ModelSerializer):
         return f'http://127.0.0.1:8000/media/{obj.image}' if obj.image else None
 
 
-class GalleryImageSerializer(serializers.ModelSerializer):
-    album_images = AlbumImageSerializer(many=True, read_only=True)
+class GallerySerializer(serializers.ModelSerializer):
+    album_images = AlbumsSerializer(many=True, read_only=True)
     image_url = serializers.SerializerMethodField()
 
     class Meta:
-        model = GalleryImage
+        model = Gallery
         fields = ['id', 'title', 'image', 'image_url', 'created_at', 'album_images']
 
     def get_image_url(self, obj):
