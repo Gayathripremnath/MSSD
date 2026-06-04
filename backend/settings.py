@@ -82,19 +82,19 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'pWpcDFQUcRrKzgqsjkpCTlQYXwwEktfp',
-        'HOST': 'zephyr.proxy.rlwy.net',
-        'PORT': '45322',
+        'NAME': 'msspublic',
+         'USER': 'root',
+        'PASSWORD': 'gayathri123',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     },
     'school': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
+        'NAME': 'msspublicschool',
         'USER': 'root',
-        'PASSWORD': 'pWpcDFQUcRrKzgqsjkpCTlQYXwwEktfp',
-        'HOST': 'zephyr.proxy.rlwy.net',
-        'PORT': '45322',
+        'PASSWORD': 'gayathri123',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
