@@ -151,6 +151,8 @@ CORS_ALLOW_METHODS = [
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
