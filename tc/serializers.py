@@ -7,7 +7,7 @@ class TransferCertificateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TransferCertificate
-        fields = ['id', 'tc_no', 'student_name', 'tc_image', 'tc_image_url', 'created_date', 'delete_status']
+        fields = ['id', 'tc_no', 'student_name', 'tc_image', 'tc_image_url',]
 
     def get_tc_image_url(self, obj):
         if not obj.tc_image:

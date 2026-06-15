@@ -5,7 +5,7 @@ from .serializers import TransferCertificateSerializer
 
 
 class TransferCertificateListCreateView(generics.ListCreateAPIView):
-    queryset = TransferCertificate.objects.filter(delete_status=0)
+    queryset = TransferCertificate.objects.all()
     serializer_class = TransferCertificateSerializer
     parser_classes = [MultiPartParser, FormParser]
 
