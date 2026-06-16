@@ -7,13 +7,24 @@ class TransferCertificateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TransferCertificate
-        fields = ['id', 'tc_no', 'student_name', 'tc_image', 'tc_image_url',]
+        fields = [
+            'id',
+            'tc_no',
+            'student_name',
+            'tc_image',
+            'tc_image_url',
+            'created_date',
+            'delete_status'
+        ]
 
     def get_tc_image_url(self, obj):
         if not obj.tc_image:
             return None
+
         request = self.context.get('request')
-        url = f'/media/tc/{obj.tc_image}'
+
+        # BEST PRACTICE (Django handles path correctly)
         if request:
-            return request.build_absolute_uri(url)
-        return f'http://127.0.0.1:8000{url}'
+            return request.build_absolute_uri(obj.tc_image.url)
+
+        return obj.tc_image.url
