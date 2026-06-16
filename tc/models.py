@@ -17,5 +17,8 @@ class TransferCertificate(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     delete_status = models.IntegerField(default=0)
 
+    class Meta:
+        db_table = 'transfer_certificates'
+
     def __str__(self):
         return self.student_name
