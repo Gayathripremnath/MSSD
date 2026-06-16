@@ -13,7 +13,7 @@ class AlbumImageSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         if obj.image and request:
             return request.build_absolute_uri(obj.image.url)
-        return f'http://127.0.0.1:8000/media/{obj.image}' if obj.image else None
+        return None
 
 
 class GalleryImageSerializer(serializers.ModelSerializer):
@@ -28,4 +28,4 @@ class GalleryImageSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         if obj.image and request:
             return request.build_absolute_uri(obj.image.url)
-        return f'http://127.0.0.1:8000/media/{obj.image}' if obj.image else None
+        return None
