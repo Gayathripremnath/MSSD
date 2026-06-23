@@ -28,6 +28,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Trust Railway/reverse-proxy forwarded headers so that
+# request.build_absolute_uri() returns https:// URLs, not http://.
+# Without this, image_url fields are http:// which browsers block as
+# mixed content on the HTTPS Vercel frontend.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+
 # Application definition
 
 INSTALLED_APPS = [
